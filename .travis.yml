@@ -11,7 +11,7 @@ before_script:
   - npm install -g grunt-cli
   - bower install
 
-script: npm run-script send-coverage
+# script: npm run-script send-coverage
 
 deploy:
   provider: heroku
