@@ -24,17 +24,6 @@ stream.factory('socket', function ($rootScope) {
   };
 });
 
-stream.controller('TweetCtrl', ['$scope', 'socket', function($scope, socket){
-    $scope.status = "No tweets yet...";
-    $scope.tweets = [];
-    var i = 0;
-    socket.on('newTweet', function (tweet) {
-      $scope.status = "";
-      $scope.tweets.push(tweet);
-    });
-  }
-]);
-
 stream.controller('CommitCtrl', ['$scope', 'socket', 'ipCookie', function($scope, socket, ipCookie){
     $scope.status = "Loading activity...";
     $scope.commits = ipCookie('commits') || [];
