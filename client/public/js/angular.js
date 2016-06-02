@@ -36,7 +36,7 @@ stream.controller('TweetCtrl', ['$scope', 'socket', function($scope, socket){
 ]);
 
 stream.controller('CommitCtrl', ['$scope', 'socket', 'ipCookie', function($scope, socket, ipCookie){
-    $scope.status = "Loading commits...";
+    $scope.status = "Loading activity...";
     $scope.commits = ipCookie('commits') || [];
     var i = 0;
     // new commit arrives from server
