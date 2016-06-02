@@ -13,7 +13,7 @@
             <div class="panel-body">
               <div class="row">
                 <div class="col-sm-2">
-                  <a href= "{{commit.actor.url}}">
+                  <a href= "https://github.com/{{commit.actor.login}}">
                     <img ng-src="{{commit.actor.avatar_url}}" width="50" height="50"/>
                   </a>
                 </div>
@@ -39,7 +39,7 @@
                   <span ng-if="commit.type == 'StatusEvent'">status</span>
                   <span ng-if="commit.type == 'TeamAddEvent'">team</span>
                   <span ng-if="commit.type == 'WatchEvent'">starred</span>
-                  <a style="display:inline;" href="{{commit.repo.url}}"><span>{{commit.repo.name}}</span></a>
+                  <a style="display:inline;" href="https://github.com/{{commit.repo.name}}"><span>{{commit.repo.name}}</span></a>
                   </h4>
                   <span>{{commit.created_at | fromNow}}</span>
                     <!-- </accordian-group>
