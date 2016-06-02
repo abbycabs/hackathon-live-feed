@@ -156,6 +156,7 @@ var loop = function loop() {
     io.emit('newCommit', commitLibrary);
   }, 12500)
 };
+loop();
 setInterval(loop, 25000);
 
 

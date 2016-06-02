@@ -3,9 +3,9 @@
 {% block content %}
 
 <div ng-app='myApp' ng-controller="CommitCtrl">
-  <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-md-6 col-md-offset-1">
+      <h3>{% raw %}{{ status }}{% endraw %}</h3>
       <div ng-repeat="commit in commits">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <div class="">
