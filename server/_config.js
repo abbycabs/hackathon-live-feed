@@ -87,10 +87,7 @@ config.github = [
   {owner: 'cafervero', repo: 'moderforest'},
   {owner: 'SASUSA', repo: 'SunRisksStatsViz'},
   {owner: 'SASUSA', repo: 'MappingRegisteredUSClinicalTrials'},
-  {owner: 'zooniverse', repo: 'education-api'},
-  {owner: 'zooniverse', repo: 'panoptes-subject-uploader'},
-  {owner: 'zooniverse', repo: 'geordi-client'},
-  {owner: 'zooniverse', repo: 'planet-hunters-image-generator'},
+  {owner: 'aliburchard', repo: 'ProjectBuilderDocumentation'},
   {owner:'josmas', repo: 'badgr-client'}
 
 ];
