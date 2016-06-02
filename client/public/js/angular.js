@@ -42,11 +42,11 @@ stream.controller('CommitCtrl', ['$scope', 'socket', 'ipCookie', function($scope
     // new commit arrives from server
     socket.on('newCommit', function (commit) {
       console.log(commit)
-      console.log("hi!");
+      // console.log("hi!");
       $scope.status = "";
       $scope.commits = commit;
       ipCookie('commits',commit)
-      console.log('commits',$scope.commits)
+      // console.log('commits',$scope.commits)
     });
   }
 ]);

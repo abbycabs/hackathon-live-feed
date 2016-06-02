@@ -1,35 +1,60 @@
 {% extends '_base.html' %}
 
-{% block title %}{% endblock %}
-
-
 {% block content %}
 
-<!-- divitis :( -->
-<div>
+<div ng-app='myApp' ng-controller="CommitCtrl">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <a href="/auth/github" class="btn btn-social btn-lg btn-github">
-        <i class="fa fa-github"></i>
-        <span>Sign in with Github</span>
-      </a>
-      <br>
-      <a href="/auth/login/">Admin Login</a>
+
+    <div class="col-md-6">
+      <div ng-repeat="commit in commits">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="">
+          {% raw %}
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-2">
+                  <a href= "{{commit.actor.url}}">
+                    <img ng-src="{{commit.actor.avatar_url}}" width="50" height="50"/>
+                  </a>
+                </div>
+                <div class="col-sm-10">
+                  <h4>
+                  <span><b>@{{commit.actor.login}}</b></span>
+                  <span ng-if="commit.type == 'PushEvent'">pushed to</span>
+                  <span ng-if="commit.type == 'CommitCommentEvent'">commented on</span>
+                  <span ng-if="commit.type == 'CreateEvent'">created a {{commit.payload.ref_type}}</span>
+                  <span ng-if="commit.type == 'DeleteEvent'">deleted a {{commit.payload.ref_type}}</span>
+                  <span ng-if="commit.type == 'DeploymentEvent'">deployed</span>
+                  <span ng-if="commit.type == 'DeploymentStatusEvent'">deployed</span>
+                  <span ng-if="commit.type == 'DownloadEvent'">downloaded</span>
+                  <span ng-if="commit.type == 'FollowEvent'">followed</span>
+                  <span ng-if="commit.type == 'ForkEvent'">forked</span>
+                  <span ng-if="commit.type == 'ForkApplyEvent'">forked</span>
+                  <span ng-if="commit.type == 'GistEvent'">created a gist</span>
+                  <span ng-if="commit.type == 'GollumEvent'">added to the wiki</span>
+                  <span ng-if="commit.type == 'IssueCommentEvent'">commented on issue</span>
+                  <span ng-if="commit.type == 'IssuesEvent'">{{commit.payload.action}} an issue</span>
+                  <span ng-if="commit.type == 'PageBuildEvent'">built a page</span>
+                  <span ng-if="commit.type == 'PullRequestEvent'">{{commit.payload.action}} a PR</span>
+                  <span ng-if="commit.type == 'StatusEvent'">status</span>
+                  <span ng-if="commit.type == 'TeamAddEvent'">team</span>
+                  <span ng-if="commit.type == 'WatchEvent'">starred</span>
+                  <a style="display:inline;" href="commit.repo.url"><span>{{commit.repo.name}}</span></a>
+                  </h4>
+                  <span>{{commit.created_at | fromNow}}</span>
+                    <!-- </accordian-group>
+                  </accordian> -->
+                </div>
+              </div>
+            </div>
+            {% endraw %}
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
-  <br><br><br><br>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <p>
-        <span>Powered by</span>
-        <br>
-        <a href="http://refactoru.com">
-          <img class="refactoru-logo" src="/images/refactoru.png">
-        </a>
-      <p>
-    </div>
+
   </div>
 </div>
-
 
 {% endblock %}

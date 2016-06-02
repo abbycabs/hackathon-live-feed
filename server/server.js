@@ -4,7 +4,8 @@ var app = require('./app'),
     Twitter = require('twitter'),
     config = require('./_config'),
     request = require("request"),
-    _ = require('lodash');
+    _ = require('lodash'),
+    etag_index = {};
 
 
 // get port from env and store
@@ -68,60 +69,93 @@ function onListening() {
 
 var io = require('socket.io').listen(server);
 
-var client = new Twitter({
-  consumer_key: config.twitterConsumerKey,
-  consumer_secret: config.twitterConsumerSecret,
-  access_token_key: config.twitterAccessTokenKey,
-  access_token_secret: config.twitterAccessTokenSecret
-});
+// var client = new Twitter({
+//   consumer_key: config.twitterConsumerKey,
+//   consumer_secret: config.twitterConsumerSecret,
+//   access_token_key: config.twitterAccessTokenKey,
+//   access_token_secret: config.twitterAccessTokenSecret
+// });
 
-client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
-  stream.on('data', function(tweet) {
-    io.emit('newTweet', tweet);
-  });
-  stream.on('error', function(error) {
-    throw error;
-  });
-});
+// client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
+//   stream.on('data', function(tweet) {
+//     io.emit('newTweet', tweet);
+//   });
+//   stream.on('error', function(error) {
+//     throw error;
+//   });
+// });
 
 
 var commitLibrary = [];
 
 // refactor!
 function getCommits(owner, repo) {
-  var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/events';
+    var etag = etag_index[owner + repo];
+    var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/events';
 
-  var options = {
-    method: 'get',
-    json: true,
-    url: url,
-    headers : {'User-Agent': 'test'}
-  };
-  request(options, url, function(err, resp, body) {
-    if (err) {
-      res.status(500).send('Something broke!');
+    var options = {
+      method: "GET",
+      json: true,
+      url: url
+    };
+    var userCreds = {
+      username: config.githubUsername,
+      password: config.githubPassword
+    };
+
+  request(_.extend({
+    headers: {
+      Accept: "application/vnd.github.v3+json",
+      "User-Agent": "testing MozFest proposal migrators",
+      "If-None-Match": etag
+    },
+    auth: {
+      user: userCreds.username,
+      pass: userCreds.password
+    },
+    json: true
+  }, options), function(error, response, body) {
+    if (error) {
+      cb(error);
     }
-    if (commitLibrary.length){
-      commitLibary = _.flatten(_.union(commitLibrary,body));
-      io.emit('newCommit', commitLibrary);
+    if (error) {
+      response.status(500).send('Something broke!');
     } else {
-      commitLibrary = body;
-      io.emit('newCommit', commitLibrary);
+      etag_index[owner + repo] = response.headers.etag;
+      if (response.statusCode >= 200 && response.statusCode < 300){
+        commitLibrary = commitLibrary.concat(body);
+        console.log(owner + '/' + repo + ' ' + response.statusCode);
+      }
     }
+  });
+}
 
+var sortLibrary = function(){
+  commitLibrary.sort(function(a, b){
+      var keyA = new Date(a.created_at),
+          keyB = new Date(b.created_at);
+      // Compare the 2 dates
+      if(keyA > keyB) return -1;
+      if(keyA < keyB) return 1;
+      return 0;
   });
 }
 
 var gitData = config.github;
-
+gitData.forEach(function(data) {
+  etag_index[data.owner + data.repo] = "";
+});
 var loop = function loop() {
   gitData.forEach(function(data) {
     getCommits(data.owner, data.repo);
   });
+  setTimeout(function(){
+    console.log('emitted!');
+    sortLibrary();
+    commitLibrary = commitLibrary.slice(0,10)
+    io.emit('newCommit', commitLibrary);
+  }, 12500)
 };
-gitData.forEach(function(data) {
-  getCommits(data.owner, data.repo);
-});
 setInterval(loop, 25000);
 
 
