@@ -39,7 +39,7 @@
                   <span ng-if="commit.type == 'StatusEvent'">status</span>
                   <span ng-if="commit.type == 'TeamAddEvent'">team</span>
                   <span ng-if="commit.type == 'WatchEvent'">starred</span>
-                  <a style="display:inline;" href="commit.repo.url"><span>{{commit.repo.name}}</span></a>
+                  <a style="display:inline;" href="{{commit.repo.url}}"><span>{{commit.repo.name}}</span></a>
                   </h4>
                   <span>{{commit.created_at | fromNow}}</span>
                     <!-- </accordian-group>
