@@ -152,7 +152,7 @@ var loop = function loop() {
   setTimeout(function(){
     console.log('emitted!');
     sortLibrary();
-    commitLibrary = commitLibrary.slice(0,10)
+    commitLibrary = commitLibrary.slice(0,50)
     io.emit('newCommit', commitLibrary);
   }, 12500)
 };
