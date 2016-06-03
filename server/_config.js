@@ -86,6 +86,7 @@ config.github = [
   {owner: 'paperhive', repo: 'oai-pmh'},
   {owner: 'cafervero', repo: 'moderforest'},
   {owner: 'SASUSA', repo: 'SunRisksStatsViz'},
+  {owner: 'KirstieJane', repo: 'clubs-events'},
   {owner: 'SASUSA', repo: 'MappingRegisteredUSClinicalTrials'},
   {owner: 'aliburchard', repo: 'ProjectBuilderDocumentation'},
   {owner:'josmas', repo: 'badgr-client'}
