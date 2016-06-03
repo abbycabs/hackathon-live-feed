@@ -78,6 +78,7 @@ config.github = [
   {owner: 'bmkramer', repo: '101innovations-survey-data'},
   {owner: 'kdaily', repo: 'shinyPathway'},
   {owner: 'cbahlai', repo: 'lampyrid'},
+  {owner: 'cbahlai', repo: 'dede'},
   {owner: 'zjsteyn', repo: 'ruralcomputing'},
   {owner: 'paperhive', repo: 'paperhive-frontend'},
   {owner: 'paperhive', repo: 'paperhive-frontend-static'},
