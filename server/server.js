@@ -154,10 +154,10 @@ var loop = function loop() {
     sortLibrary();
     commitLibrary = commitLibrary.slice(0,50)
     io.emit('newCommit', commitLibrary);
-  }, 12500)
+  }, 6000)
 };
 loop();
-setInterval(loop, 25000);
+setInterval(loop, 12500);
 
 
 
