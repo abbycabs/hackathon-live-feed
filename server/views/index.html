@@ -36,7 +36,7 @@
                   <span ng-if="commit.type == 'IssuesEvent'">{{commit.payload.action}} an issue</span>
                   <span ng-if="commit.type == 'PageBuildEvent'">built a page</span>
 
-                  <span ng-if="commit.type == 'PullRequestReviewCommentEvent'">commented on a a PR</span>
+                  <span ng-if="commit.type == 'PullRequestReviewCommentEvent'">commented on a PR</span>
                   <span ng-if="commit.type == 'PullRequestEvent'">{{commit.payload.action}} a PR</span>
                   <span ng-if="commit.type == 'StatusEvent'">status</span>
                   <span ng-if="commit.type == 'TeamAddEvent'">team</span>
