@@ -143,7 +143,8 @@ config.github = [
 { owner: 'shawnmgoulet', repo: 'teachosm-for-high-school'},
 { owner: 'WikiToLearn', repo: 'Hives-Network'},
 { owner: 'kitsunenosaraT', repo: 'Mozilla-Italia-l10n-guide'},
-{ owner: 'opensnp', repo: 'snpr'}
+{ owner: 'opensnp', repo: 'snpr'},
+{ owner: 'WhitakerLab', repo: 'WhitakerLabProjectManagement'}
 ];
 
 module.exports = config;
