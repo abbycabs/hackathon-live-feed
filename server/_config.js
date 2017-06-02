@@ -146,7 +146,7 @@ config.github = [
 { owner: 'WikiToLearn', repo: 'Hives-Network'},
 { owner: 'kitsunenosaraT', repo: 'Mozilla-Italia-l10n-guide'},
 { owner: 'opensnp', repo: 'snpr'},
-{ owner: 'WhitakerLab', repo: 'WhitakerLabProjectManagement'}
+{ owner: 'WhitakerLab', repo: 'WhitakerLabProjectManagement'},
 { owner: 'data-lessons', repo: 'library-git'},
 { owner: 'data-lessons', repo: 'library-shell'},
 { owner: 'data-lessons', repo: 'library-openrefine'},
