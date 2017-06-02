@@ -156,7 +156,15 @@ config.github = [
 { owner: 'data-lessons', repo: 'library-data-intro'},
 { owner: 'data-lessons', repo: 'library-webscraping'},
 { owner: 'WhitakerLab', repo: 'BrainNetworksInPython'},
-{ owner: 'gibbonCode', repo: 'GIBBON'}
+{ owner: 'gibbonCode', repo: 'GIBBON'},
+{ owner: 'openscilab', repo: 'OpenEXP'},
+{ owner: 'expfactory', repo: 'expfactory-experiments'},
+{ owner: 'expfactory', repo: 'expfactory-python'},
+{ owner: 'expfactory', repo: 'experiments'},
+{ owner: 'expfactory', repo: 'expfactory.github.io'},
+{ owner: 'opentechinstitute', repo: '990-scraper'},
+{ owner: 'nikeshbalami', repo: 'asknepal-theme'},
+{ owner: 'laderast', repo: 'whyIScience'}
 ];
 
 module.exports = config;
