@@ -155,7 +155,8 @@ config.github = [
 { owner: 'data-lessons', repo: 'library-sql'},
 { owner: 'data-lessons', repo: 'library-data-intro'},
 { owner: 'data-lessons', repo: 'library-webscraping'},
-{ owner: 'WhitakerLab', repo: 'BrainNetworksInPython'}
+{ owner: 'WhitakerLab', repo: 'BrainNetworksInPython'},
+{ owner: 'gibbonCode', repo: 'GIBBON'}
 ];
 
 module.exports = config;
