@@ -164,7 +164,8 @@ config.github = [
 { owner: 'expfactory', repo: 'expfactory.github.io'},
 { owner: 'opentechinstitute', repo: '990-scraper'},
 { owner: 'nikeshbalami', repo: 'asknepal-theme'},
-{ owner: 'laderast', repo: 'whyIScience'}
+{ owner: 'laderast', repo: 'whyIScience'},
+{ owner: 'openSNP', repo: 'opensnp.org-docker'}
 ];
 
 module.exports = config;
