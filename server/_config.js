@@ -166,7 +166,8 @@ config.github = [
 { owner: 'nikeshbalami', repo: 'asknepal-theme'},
 { owner: 'laderast', repo: 'whyIScience'},
 { owner: 'openSNP', repo: 'opensnp.org-docker'},
-{ owner: 'maggiemelo', repo: 'womentechmakers-tucson-hackathon-2017'}
+{ owner: 'maggiemelo', repo: 'womentechmakers-tucson-hackathon-2017'},
+{ owner: 'drashti4', repo: 'local-web'}
 ];
 
 module.exports = config;
