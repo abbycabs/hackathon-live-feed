@@ -165,7 +165,8 @@ config.github = [
 { owner: 'opentechinstitute', repo: '990-scraper'},
 { owner: 'nikeshbalami', repo: 'asknepal-theme'},
 { owner: 'laderast', repo: 'whyIScience'},
-{ owner: 'openSNP', repo: 'opensnp.org-docker'}
+{ owner: 'openSNP', repo: 'opensnp.org-docker'},
+{ owner: 'maggiemelo', repo: 'womentechmakers-tucson-hackathon-2017'}
 ];
 
 module.exports = config;
