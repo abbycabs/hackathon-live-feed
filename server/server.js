@@ -116,12 +116,10 @@ function getCommits(owner, repo) {
     json: true
   }, options), function(error, response, body) {
     if (error) {
-      cb(error);
-    }
-    if (error) {
-      response.status(500).send('Something broke!');
+      console.log(error);
     } else {
       etag_index[owner + repo] = response.headers.etag;
+      console.log(response.headers);
       if (response.statusCode >= 200 && response.statusCode < 300){
         commitLibrary = commitLibrary.concat(body);
         console.log(owner + '/' + repo + ' ' + response.statusCode);
@@ -145,7 +143,7 @@ var gitData = config.github;
 gitData.forEach(function(data) {
   etag_index[data.owner + data.repo] = "";
 });
-var loop = function loop() {
+var loop = function() {
   gitData.forEach(function(data) {
     getCommits(data.owner, data.repo);
   });
@@ -154,10 +152,10 @@ var loop = function loop() {
     sortLibrary();
     commitLibrary = commitLibrary.slice(0,50)
     io.emit('newCommit', commitLibrary);
-  }, 6000)
+  }, 7000)
 };
 loop();
-setInterval(loop, 12500);
+setInterval(loop, 25000);
 
 
 
