@@ -113,7 +113,7 @@ function getCommits(owner, repo) {
     headers: {
       Accept: "application/vnd.github.v3+json",
       "User-Agent": "testing MozFest proposal migrators",
-      "If-None-Match": etag
+      "If-None-Match": etag// || '"446f89d549e43a876b9f1242c17c292a"'
     },
     auth: {
       user: userCreds.username,
@@ -128,7 +128,11 @@ function getCommits(owner, repo) {
       // console.log(response.headers);
       console.log('----');
       console.log(response.headers['x-ratelimit-remaining']);
+      console.log(response.headers['x-ratelimit-reset']);
       console.log(response.headers.status);
+      console.log(response.headers.etag);
+      console.log(userCreds.username);
+
       if (response.statusCode >= 200 && response.statusCode < 300){
         commitLibrary = commitLibrary.concat(body);
         console.log(owner + '/' + repo + ' ' + response.statusCode);
@@ -165,7 +169,7 @@ var loop = function() {
     sortLibrary();
     commitLibrary = commitLibrary.slice(0,50)
     io.emit('newCommit', commitLibrary);
-  }, 6000)
+  }, 300)
 };
 loop();
 setInterval(loop, 10000);
