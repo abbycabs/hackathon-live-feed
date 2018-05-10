@@ -119,7 +119,10 @@ function getCommits(owner, repo) {
       console.log(error);
     } else {
       etag_index[owner + repo] = response.headers.etag;
-      console.log(response.headers);
+      // console.log(response.headers);
+      console.log('----');
+      console.log(response.headers['x-ratelimit-remaining']);
+      console.log(response.headers.status);
       if (response.statusCode >= 200 && response.statusCode < 300){
         commitLibrary = commitLibrary.concat(body);
         console.log(owner + '/' + repo + ' ' + response.statusCode);
@@ -136,6 +139,10 @@ var sortLibrary = function(){
       if(keyA > keyB) return -1;
       if(keyA < keyB) return 1;
       return 0;
+  });
+  commitLibrary = commitLibrary.filter(function(item, pos) {
+      if(pos == 0) return true;
+      return item.created_at != commitLibrary[pos-1].created_at
   });
 }
 
