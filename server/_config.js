@@ -251,6 +251,7 @@ config.github = [
   { owner: 'harlanji', repo: 'ispooge'},
   { owner: 'webmixedreality', repo: 'exokit'},
   { owner: 'JacobEvelyn', repo: 'friends'},
+  { owner: 'mozilla', 'global-sprint'},
   { owner: 'ortuman', repo: 'jackal'}
 ];
 
