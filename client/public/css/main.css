@@ -1,11 +1,25 @@
 /* custom styles */
 
 body {
-  padding-top: 50px;
+  padding: 0 20px;
+}
+
+.commit {
+  /*border-top: 1px solid #999;*/
+  padding: 10px;
+}
+
+.commit .avatar {
+  float:left;
+}
+
+.commit .info {
+  float:left;
+  padding-left: 20px;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .starter-template {
