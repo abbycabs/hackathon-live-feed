@@ -13,6 +13,8 @@ config.twitterAccessTokenSecret = process.env.twitterAccessTokenSecret || 'GET_Y
 
 config.githubUsername = process.env.githubUsername || 'GITHUB_USERNAME';
 config.githubPassword = process.env.githubPassword || 'GITHUB_PASSWORD';
+config.githubUsernameA = process.env.githubUsernameA || 'GITHUB_USERNAME';
+config.githubPasswordA = process.env.githubPasswordA || 'GITHUB_PASSWORD';
 
 // secret key (update in production!!!)
 config.secretKey = process.env.secretKey || "\x1d\x0fB\x8d'\xaa\xaf\x04\xca\xfe\n\xb8Vg\x95X\x9b\xd6\x18\xd60T`\xc6";

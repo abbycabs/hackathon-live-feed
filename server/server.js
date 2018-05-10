@@ -88,6 +88,15 @@ var io = require('socket.io').listen(server);
 
 var commitLibrary = [];
 
+var creds1 = {
+      username: config.githubUsername,
+      password: config.githubPassword
+    };
+var creds2 = {
+      username: config.githubUsernameA,
+      password: config.githubPasswordA
+    };
+
 // refactor!
 function getCommits(owner, repo) {
     var etag = etag_index[owner + repo];
@@ -98,10 +107,7 @@ function getCommits(owner, repo) {
       json: true,
       url: url
     };
-    var userCreds = {
-      username: config.githubUsername,
-      password: config.githubPassword
-    };
+    var userCreds = (Math.random() > 0.5) ? creds1 : creds2;
 
   request(_.extend({
     headers: {
@@ -159,10 +165,10 @@ var loop = function() {
     sortLibrary();
     commitLibrary = commitLibrary.slice(0,50)
     io.emit('newCommit', commitLibrary);
-  }, 7000)
+  }, 6000)
 };
 loop();
-setInterval(loop, 25000);
+setInterval(loop, 10000);
 
 
 
