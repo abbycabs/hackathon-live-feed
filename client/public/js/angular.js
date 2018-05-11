@@ -29,8 +29,7 @@ stream.controller('CommitCtrl', ['$scope', 'socket', 'ipCookie', '$timeout', fun
     $scope.commits = ipCookie('commits') || [];
     var i = 0;
     var refreshDates = function() {
-      console.log("refresh dates");
-      $timeout(refreshDates, 60);
+      $timeout(refreshDates, 30000);
     };
     refreshDates();
 
