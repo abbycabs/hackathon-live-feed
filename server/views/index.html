@@ -21,23 +21,23 @@
                   <div class="info">
                     <span style="font-size:1.2em" >
                   <span><b>@{{commit.actor.login}}</b></span>
-                  <span ng-if="commit.type == 'PushEvent'">pushed to 💻</span>
-                  <span ng-if="commit.type == 'CommitCommentEvent'">commented on 🗣</span>
+                  <span ng-if="commit.type == 'PushEvent'">pushed to ✨</span>
+                  <span ng-if="commit.type == 'CommitCommentEvent'">commented on 📬</span>
                   <span ng-if="commit.type == 'CreateEvent'">created a {{commit.payload.ref_type}}</span>
                   <span ng-if="commit.type == 'DeleteEvent'">deleted a {{commit.payload.ref_type}}</span>
                   <span ng-if="commit.type == 'DeploymentEvent'">deployed</span>
                   <span ng-if="commit.type == 'DeploymentStatusEvent'">deployed</span>
-                  <span ng-if="commit.type == 'DownloadEvent'">downloaded</span>
+                  <span ng-if="commit.type == 'DownloadEvent'">downloaded 📥</span>
                   <span ng-if="commit.type == 'FollowEvent'">followed</span>
                   <span ng-if="commit.type == 'ForkEvent'">forked 🎉</span>
                   <span ng-if="commit.type == 'ForkApplyEvent'">forked 🎉</span>
                   <span ng-if="commit.type == 'GistEvent'">created a gist</span>
                   <span ng-if="commit.type == 'GollumEvent'">added to the wiki</span>
                   <span ng-if="commit.type == 'IssueCommentEvent'">commented on issue 🗣</span>
-                  <span ng-if="commit.type == 'IssuesEvent'">{{commit.payload.action}} an issue</span>
+                  <span ng-if="commit.type == 'IssuesEvent'">{{commit.payload.action}} an issue 🎈</span>
                   <span ng-if="commit.type == 'PageBuildEvent'">built a page</span>
 
-                  <span ng-if="commit.type == 'PullRequestReviewCommentEvent'">commented on a PR 🗣</span>
+                  <span ng-if="commit.type == 'PullRequestReviewCommentEvent'">commented on a PR 📬</span>
                   <span ng-if="commit.type == 'PullRequestEvent'">{{commit.payload.action}} a PR 🎁</span>
                   <span ng-if="commit.type == 'StatusEvent'">status</span>
                   <span ng-if="commit.type == 'TeamAddEvent'">team</span>
