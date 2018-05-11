@@ -88,14 +88,13 @@ var io = require('socket.io').listen(server);
 
 var commitLibrary = [];
 
-var creds1 = {
+var creds = [{
       username: config.githubUsername,
       password: config.githubPassword
-    };
-var creds2 = {
+    }, {
       username: config.githubUsernameA,
       password: config.githubPasswordA
-    };
+    }];
 
 // refactor!
 function getCommits(owner, repo) {
@@ -107,13 +106,14 @@ function getCommits(owner, repo) {
       json: true,
       url: url
     };
-    var userCreds = (Math.random() > 0.5) ? creds1 : creds2;
+    // var userCreds = (Math.random() > 0.5) ? creds1 : creds2;
+    var userCreds = creds[Math.floor(Math.random() * Math.floor(creds.length))]
 
   request(_.extend({
     headers: {
       Accept: "application/vnd.github.v3+json",
       "User-Agent": "testing MozFest proposal migrators",
-      "If-None-Match": etag// || '"446f89d549e43a876b9f1242c17c292a"'
+      "If-None-Match": etag
     },
     auth: {
       user: userCreds.username,
@@ -172,7 +172,7 @@ var loop = function() {
   }, 100)
 };
 loop();
-setInterval(loop, 5000);
+setInterval(loop, 10000);
 
 
 
