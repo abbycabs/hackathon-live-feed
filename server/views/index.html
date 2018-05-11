@@ -29,8 +29,8 @@
                   <span ng-if="commit.type == 'DeploymentStatusEvent'">deployed</span>
                   <span ng-if="commit.type == 'DownloadEvent'">downloaded</span>
                   <span ng-if="commit.type == 'FollowEvent'">followed</span>
-                  <span ng-if="commit.type == 'ForkEvent'">forked</span>
-                  <span ng-if="commit.type == 'ForkApplyEvent'">forked</span>
+                  <span ng-if="commit.type == 'ForkEvent'">forked 🎉</span>
+                  <span ng-if="commit.type == 'ForkApplyEvent'">forked 🎉</span>
                   <span ng-if="commit.type == 'GistEvent'">created a gist</span>
                   <span ng-if="commit.type == 'GollumEvent'">added to the wiki</span>
                   <span ng-if="commit.type == 'IssueCommentEvent'">commented on issue</span>
@@ -41,7 +41,7 @@
                   <span ng-if="commit.type == 'PullRequestEvent'">{{commit.payload.action}} a PR</span>
                   <span ng-if="commit.type == 'StatusEvent'">status</span>
                   <span ng-if="commit.type == 'TeamAddEvent'">team</span>
-                  <span ng-if="commit.type == 'WatchEvent'">starred</span>
+                  <span ng-if="commit.type == 'WatchEvent'">starred 🌟</span>
                   <a style="display:inline;" href="https://github.com/{{commit.repo.name}}"><span>{{commit.repo.name}}</span></a>
                   </span>
                   <br />
@@ -61,6 +61,11 @@
                     <a href="{{commit.payload.pull_request.html_url}}">#{{commit.payload.number }}</a> {{commit.payload.pull_request.title }}
                     <br />
                   </span>
+                  <span ng-if="commit.type == 'CreateEvent'">
+                    {{ commit.payload.ref }}: {{ commit.payload.description }}
+                    <br />
+                  </span>
+
                   <span>{{commit.created_at | fromNow}}</span>
                 </div>
 

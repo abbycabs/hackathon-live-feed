@@ -176,7 +176,7 @@ var loop = function() {
   }, 100)
 };
 loop();
-setInterval(loop, 6000);
+setInterval(loop, 8000);
 
 
 
