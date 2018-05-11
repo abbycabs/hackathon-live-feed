@@ -29,17 +29,17 @@ stream.controller('CommitCtrl', ['$scope', 'socket', 'ipCookie', '$timeout', fun
     $scope.commits = ipCookie('commits') || [];
     var i = 0;
     var refreshDates = function() {
+      console.log("refresh dates");
       $timeout(refreshDates, 60);
     };
+    refreshDates();
 
     // new commit arrives from server
     socket.on('newCommit', function (commit) {
-      console.log(commit);
       // console.log("hi!");
       $scope.status = "";
       $scope.commits = commit;
       ipCookie('commits',commit)
-      refreshDates();
       // console.log('commits',$scope.commits)
     });
 
