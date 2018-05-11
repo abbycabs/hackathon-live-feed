@@ -15,7 +15,8 @@ config.githubUsername = process.env.githubUsername || 'GITHUB_USERNAME';
 config.githubPassword = process.env.githubPassword || 'GITHUB_PASSWORD';
 config.githubUsernameA = process.env.githubUsernameA || 'GITHUB_USERNAME';
 config.githubPasswordA = process.env.githubPasswordA || 'GITHUB_PASSWORD';
-
+config.githubUsernameB = process.env.githubUsernameB || 'GITHUB_USERNAME';
+config.githubPasswordB = process.env.githubPasswordB || 'GITHUB_PASSWORD';
 // secret key (update in production!!!)
 config.secretKey = process.env.secretKey || "\x1d\x0fB\x8d'\xaa\xaf\x04\xca\xfe\n\xb8Vg\x95X\x9b\xd6\x18\xd60T`\xc6";
 
@@ -274,7 +275,8 @@ config.github = [
   { owner: 'oscedays', repo: 'hackthewatercrisis' },
   { owner: 'ivotron', repo: 'open-comp-rsc-poppper' },
   { owner: 'nherriot', repo: 'WaterMonitor_IoT_PWA' },
-  { owner: 'OpenNeuroLab', repo: 'BrainBox' }
+  { owner: 'OpenNeuroLab', repo: 'BrainBox' },
+  { owner: 'BrianObilo', repo: 'Internet-Yetu' }
 ];
 
 module.exports = config;

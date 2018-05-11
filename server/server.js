@@ -91,7 +91,7 @@ var commitLibrary = [];
 var creds = [{
       username: config.githubUsername,
       password: config.githubPassword
-    }, {
+    },{
       username: config.githubUsernameA,
       password: config.githubPasswordA
     },{
@@ -110,7 +110,8 @@ function getCommits(owner, repo) {
       url: url
     };
     // var userCreds = (Math.random() > 0.5) ? creds1 : creds2;
-    var userCreds = creds[Math.floor(Math.random() * Math.floor(creds.length))]
+
+    var userCreds = creds[Math.floor(Math.random() * (creds.length))];
 
   request(_.extend({
     headers: {
@@ -175,7 +176,7 @@ var loop = function() {
   }, 100)
 };
 loop();
-setInterval(loop, 10000);
+setInterval(loop, 6000);
 
 
 

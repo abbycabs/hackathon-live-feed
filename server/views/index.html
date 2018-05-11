@@ -19,7 +19,7 @@
                   </div>
 
                   <div class="info">
-                    <span style="font-size:1.5em" >
+                    <span style="font-size:1.2em" >
                   <span><b>@{{commit.actor.login}}</b></span>
                   <span ng-if="commit.type == 'PushEvent'">pushed to</span>
                   <span ng-if="commit.type == 'CommitCommentEvent'">commented on</span>
@@ -44,7 +44,15 @@
                   <span ng-if="commit.type == 'WatchEvent'">starred</span>
                   <a style="display:inline;" href="https://github.com/{{commit.repo.name}}"><span>{{commit.repo.name}}</span></a>
                   </span>
-                <br />
+                  <br />
+                  <span ng-if="commit.type == 'IssuesEvent'">
+                    <a href="{{commit.payload.issue.html_url}}">#{{commit.payload.issue.number }}</a> {{commit.payload.issue.title }}
+                    <br />
+                  </span>
+                  <span ng-if="commit.type == 'IssueCommentEvent'">
+                    <a href="{{commit.payload.issue.html_url}}">#{{commit.payload.issue.number }}</a> {{commit.payload.comment.body.slice(0, 80) }} [<a href="{{commit.payload.comment.html_url}}">...</a>]
+                    <br />
+                  </span>
                   <span>{{commit.created_at | fromNow}}</span>
                 </div>
 

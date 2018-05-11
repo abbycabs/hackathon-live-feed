@@ -24,7 +24,7 @@ stream.factory('socket', function ($rootScope) {
   };
 });
 
-stream.controller('CommitCtrl', ['$scope', 'socket', 'ipCookie', function($scope, socket, ipCookie){
+stream.controller('CommitCtrl', ['$scope', 'socket', 'ipCookie', '$timeout', function($scope, socket, ipCookie, $timeout){
     $scope.status = "Loading activity...";
     $scope.commits = ipCookie('commits') || [];
     var i = 0;
