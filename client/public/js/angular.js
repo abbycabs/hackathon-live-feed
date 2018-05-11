@@ -28,15 +28,21 @@ stream.controller('CommitCtrl', ['$scope', 'socket', 'ipCookie', function($scope
     $scope.status = "Loading activity...";
     $scope.commits = ipCookie('commits') || [];
     var i = 0;
+    var refreshDates = function() {
+      $timeout(refreshDates, 60);
+    };
+
     // new commit arrives from server
     socket.on('newCommit', function (commit) {
-      // console.log(commit);
+      console.log(commit);
       // console.log("hi!");
       $scope.status = "";
       $scope.commits = commit;
       ipCookie('commits',commit)
+      refreshDates();
       // console.log('commits',$scope.commits)
     });
+
   }
 ]);
 

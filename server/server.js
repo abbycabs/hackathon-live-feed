@@ -94,6 +94,9 @@ var creds = [{
     }, {
       username: config.githubUsernameA,
       password: config.githubPasswordA
+    },{
+      username: config.githubUsernameB,
+      password: config.githubPasswordB
     }];
 
 // refactor!
