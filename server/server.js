@@ -97,6 +97,9 @@ var creds = [{
     },{
       username: config.githubUsernameB,
       password: config.githubPasswordB
+    },{
+      username: "abbycabs",
+      password: config.githubPasswordB
     }];
 
 // refactor!
@@ -176,7 +179,7 @@ var loop = function() {
   }, 100)
 };
 loop();
-setInterval(loop, 10000);
+setInterval(loop, 8000);
 
 
 
