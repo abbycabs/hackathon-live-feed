@@ -53,6 +53,14 @@
                     <a href="{{commit.payload.issue.html_url}}">#{{commit.payload.issue.number }}</a> {{commit.payload.comment.body.slice(0, 80) }} [<a href="{{commit.payload.comment.html_url}}">...</a>]
                     <br />
                   </span>
+                  <span ng-if="commit.type == 'PushEvent'">
+                    <a href="{{ commit.payload.commits[0].url }}">{{ commit.payload.head.slice(0,7) }}</a> {{ commit.payload.commits[0].message }}
+                    <br />
+                  </span>
+                  <span ng-if="commit.type == 'PullRequestEvent'">
+                    <a href="{{commit.payload.pull_request.html_url}}">#{{commit.payload.number }}</a> {{commit.payload.pull_request.title }}
+                    <br />
+                  </span>
                   <span>{{commit.created_at | fromNow}}</span>
                 </div>
 
