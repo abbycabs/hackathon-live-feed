@@ -169,10 +169,10 @@ var loop = function() {
     sortLibrary();
     commitLibrary = commitLibrary.slice(0,50)
     io.emit('newCommit', commitLibrary);
-  }, 300)
+  }, 100)
 };
 loop();
-setInterval(loop, 10000);
+setInterval(loop, 1000);
 
 
 
