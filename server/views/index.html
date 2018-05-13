@@ -54,8 +54,17 @@
                     <a href="{{commit.payload.issue.html_url}}">#{{commit.payload.issue.number }}</a> {{commit.payload.comment.body.slice(0, 80) }} [<a href="{{commit.payload.comment.html_url}}">...</a>]
                     <br />
                   </span>
+
+                  <span ng-if="commit.type == 'PullRequestReviewCommentEvent'">
+                    <a href="{{commit.payload.comment.html_url }}">#{{commit.payload.pull_request.number }}</a> {{commit.payload.comment.body.slice(0, 80) }} [<a href="{{commit.payload.comment.html_url}}">...</a>]
+                    <br />
+                  </span>
+                  <span ng-if="commit.type == 'CommitCommentEvent'">
+                    <a href="{{commit.payload.comment.html_url}}">#{{commit.payload.comment.commit_id.slice(0,7) }}</a> {{commit.payload.comment.body.slice(0, 80) }} [<a href="{{commit.payload.comment.html_url}}">...</a>]
+                    <br />
+                  </span>
                   <span ng-if="commit.type == 'PushEvent'">
-                    <a href="{{ commit.payload.commits[0].url }}">{{ commit.payload.head.slice(0,7) }}</a> {{ commit.payload.commits[0].message.slice(0, 80) }}
+                    <a href="{{ commit.payload.commits[0].url }}">{{ commit.payload.head.slice(0,7) }}</a> {{ commit.payload.commits[0].message.slice(0, 80) }} [<a href="{{commit.payload.commits[0].url }}">...</a>]
                     <br />
                   </span>
                   <span ng-if="commit.type == 'PullRequestEvent'">
